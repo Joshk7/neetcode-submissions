@@ -1,0 +1,11 @@
+class Solution {
+    public int countOdds(int low, int high) {
+        int length = high - low + 1;
+        int count = length / 2;
+        if (length % 2 == 1 && low % 2 == 1) {
+            count++;
+        }
+
+        return count;
+    }
+}
