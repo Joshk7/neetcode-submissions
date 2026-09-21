@@ -1,0 +1,24 @@
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+
+        for (char c : s.toCharArray()) {
+            if (stack.isEmpty()) {
+                stack.push(c);
+            } else {
+                char top = stack.peek();
+                if (c == '}' && top == '{') {
+                    stack.pop();
+                } else if (c == ']' && top == '[') {
+                    stack.pop();
+                } else if (c == ')' && top == '(') {
+                    stack.pop();
+                } else {
+                    stack.push(c);
+                }
+            }
+        }
+
+        return stack.isEmpty();
+    }
+}
